@@ -24,9 +24,9 @@ def directions():
     steps = find_directions(origin, destination)
     
     if steps:
-        return render_template("full-api\directions.html", steps=steps)
+        return render_template("directions.html", steps=steps)
     else:
-        return render_template("full-api\directions.html", error="Không tìm thấy đường đi.")
+        return render_template("directions.html", error="Không tìm thấy đường đi.")
 
 # Tìm đường đi giữa hai điểm
 def find_directions(origin, destination):
