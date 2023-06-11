@@ -2,7 +2,7 @@ from flask import Flask, render_template, request
 import googlemaps
 
 # Khóa API Google Maps
-api_key = 'AIzaSyD33vGmY4G4vlB1m4HNCcWPQ1uMGSZd3QI'
+api_key = 'AIzaSyCT7aw2miELB6v2BiKKJqM-oq6QqHdu3fM'
 
 # Tạo đối tượng client của Google Maps
 gmaps = googlemaps.Client(key=api_key)
@@ -11,7 +11,7 @@ gmaps = googlemaps.Client(key=api_key)
 app = Flask(__name__)
 
 # Route mặc định
-@app.route('/index')
+@app.route('/')
 def index():
     return render_template('index.html')
 
@@ -30,10 +30,10 @@ def directions():
 
 # Tìm đường đi giữa hai điểm
 def find_directions(origin, destination):
-    directions_result = gmaps.directions(origin, destination, mode="driving")
+    directions_result = gmaps.directions(origin, destination, mode="walking")
     if directions_result:
         return directions_result[0]['legs'][0]['steps']
     return None
 
 if __name__ == '__main__':
-    app.run()
+    app.run(debug=True)

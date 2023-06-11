@@ -1,2 +1,0 @@
-# project-AI
-A*algorithm

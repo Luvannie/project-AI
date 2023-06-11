@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Directions</title>
+    <link rel="stylesheet" href="../static/style.css">
+</head>
+<body>
+    {% if error %}
+    <div class="error">{{ error }}</div>
+    {% else %}
+    <div id="map"></div>
+    <div id="steps">
+        {% for step in steps %}
+        <div class="step">{{ step }}</div>
+        {% endfor %}
+    </div>
+    {% endif %}
+
+    <script src="../static/script.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCT7aw2miELB6v2BiKKJqM-oq6QqHdu3fM&callback=initMap" async defer></script>
+</body>
+</html>
